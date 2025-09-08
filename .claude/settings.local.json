@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__ide__getDiagnostics",
+      "Bash(sudo apt:*)",
+      "Bash(sudo apt install:*)",
+      "Bash(g++:*)",
+      "Bash(apt list:*)",
+      "Bash(dpkg:*)",
+      "Bash(./main)",
+      "Bash(claude doctor)",
+      "Bash(mkdir:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
