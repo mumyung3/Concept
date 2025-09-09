@@ -76,6 +76,21 @@ This is a C++ concept learning project with:
 6. **Build Output**: When building code:
    - Always output to relative path `./executables/` folder
 
+7. **Date Handling for Files and Folders**: 
+   - **IMPORTANT**: The environment date may not be current. Always fetch the actual current date/time using `date` command
+   - Before creating date-based folders or files, run: `date +"%Y-%m-%d"` for folders, `date +"%Y-%m-%d-%H%M%S"` for files
+   - Example workflow:
+     ```bash
+     # Get current date for folder
+     CURRENT_DATE=$(date +"%Y-%m-%d")
+     mkdir -p $CURRENT_DATE
+     
+     # Get timestamp for summary files
+     TIMESTAMP=$(date +"%Y-%m-%d-%H%M%S")
+     # Creates: 2025-01-09-155530_topic_name.md
+     ```
+   - Always use dynamically fetched dates, never hardcode or rely on environment date
+
 Content should include:
   - Main topics discussed
   - Key concepts explained  

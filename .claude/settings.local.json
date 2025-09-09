@@ -22,7 +22,12 @@
       "Bash(./pointer_array)",
       "Bash(./when_needed)",
       "Bash(./array_assignment)",
-      "Bash(./type_checking)"
+      "Bash(./type_checking)",
+      "Bash(./executables/array_circular_queue_concepts:*)",
+      "Bash(./executables/circular_queue_full_implementation:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(./executables/array_size_rules:*)"
     ],
     "deny": [],
     "ask": []
