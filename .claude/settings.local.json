@@ -9,7 +9,20 @@
       "Bash(dpkg:*)",
       "Bash(./main)",
       "Bash(claude doctor)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(./compare)",
+      "Bash(./void_casting)",
+      "Bash(./void_usage)",
+      "Bash(./pointer_size)",
+      "Bash(./data_type)",
+      "Bash(./array_pointer)",
+      "Bash(./array_address)",
+      "Bash(./array_pointer_syntax)",
+      "Bash(./correct_interpretation)",
+      "Bash(./pointer_array)",
+      "Bash(./when_needed)",
+      "Bash(./array_assignment)",
+      "Bash(./type_checking)"
     ],
     "deny": [],
     "ask": []
