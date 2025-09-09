@@ -91,6 +91,11 @@ This is a C++ concept learning project with:
      ```
    - Always use dynamically fetched dates, never hardcode or rely on environment date
 
+8. **Example Code Guidelines**:
+   - **IMPORTANT**: Only create example code when explicitly requested by the user
+   - Focus on explanations and concepts rather than automatically generating code examples
+   - When user asks for clarification, provide text-based explanations first
+
 Content should include:
   - Main topics discussed
   - Key concepts explained  
