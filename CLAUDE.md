@@ -59,11 +59,26 @@ This is a C++ concept learning project with:
 
 ## Session Summary Instructions
 
-When a discussion session about related questions ends, create a summary file in the `summary` folder with the following format:
-- Filename: `YYYY-MM-DD_HHMMSS_topic.md` (e.g., `2025-01-09_143022_compiler_concepts.md`)
-- Content should include:
+1. **Stack-based Learning Management**: When studying concepts, we may switch to other topics in a stack-like manner. Summaries should be well-organized to facilitate easy return to previous topics.
+
+2. **Summary File Naming**: Save summary files in the `summary` folder with format:
+   - `YYYY-MM-DD-HHMMSS_topic_name.md` (e.g., `2025-01-09-143022_circular_queue.md`)
+   
+3. **Auto-commit on Summary**: After creating a summary file, automatically commit with:
+   - Commit message: Same as the topic_name from the filename
+   
+4. **Architecture Notes**: For significant architectural or file structure changes in projects:
+   - Create notes in `note/` folder with format: `YYYY-MM-DD-HHMMSS_topic_name.md`
+   
+5. **Example Code Organization**: When writing example code:
+   - Place in date-based folder: `YYYY-MM-DD/` (e.g., `2025-01-09/`)
+   
+6. **Build Output**: When building code:
+   - Always output to relative path `./executables/` folder
+
+Content should include:
   - Main topics discussed
-  - Key concepts explained
+  - Key concepts explained  
   - Code examples provided
   - Important insights or conclusions
   - Any follow-up questions or areas for further exploration
