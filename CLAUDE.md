@@ -91,10 +91,15 @@ This is a C++ concept learning project with:
      ```
    - Always use dynamically fetched dates, never hardcode or rely on environment date
 
-8. **Example Code Guidelines**:
-   - **IMPORTANT**: Only create example code when explicitly requested by the user
+8. **Example Code Guidelines** (HIGHEST PRIORITY - ALWAYS CHECK FIRST):
+   - **CRITICAL**: Only create example code when explicitly requested by the user
+   - **PRIORITY ORDER**: 
+     1. Always provide text-based explanations first
+     2. Wait for explicit user request before creating any code examples
+     3. Never automatically generate code to demonstrate concepts
    - Focus on explanations and concepts rather than automatically generating code examples
    - When user asks for clarification, provide text-based explanations first
+   - Before creating any .cpp file, confirm user explicitly requested code example
 
 Content should include:
   - Main topics discussed

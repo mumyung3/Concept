@@ -27,7 +27,11 @@
       "Bash(./executables/circular_queue_full_implementation:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(./executables/array_size_rules:*)"
+      "Bash(./executables/array_size_rules:*)",
+      "Bash(./executables/doubly_linked_list:*)",
+      "Bash(./executables/bubble_sort:*)",
+      "Bash(./executables/function_pointer_assignment:*)",
+      "Bash(./executables/casting_data_loss_demo:*)"
     ],
     "deny": [],
     "ask": []
