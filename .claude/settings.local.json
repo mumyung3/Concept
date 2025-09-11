@@ -31,7 +31,10 @@
       "Bash(./executables/doubly_linked_list:*)",
       "Bash(./executables/bubble_sort:*)",
       "Bash(./executables/function_pointer_assignment:*)",
-      "Bash(./executables/casting_data_loss_demo:*)"
+      "Bash(./executables/casting_data_loss_demo:*)",
+      "Bash(/bashes)",
+      "Bash(kill:*)",
+      "Bash(jobs)"
     ],
     "deny": [],
     "ask": []
