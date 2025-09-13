@@ -1,117 +1,152 @@
 #include <iostream>
-using namespace std;
-
-const int MAX_SIZE = 5;
-
-class CircularQueue {
-private:
-    int arr[MAX_SIZE];
+#define MAX 100
+struct Queue{
+    int ar[MAX];
     int front;
     int rear;
-    int count;
+};
+// 배열 원소 하나는 없도록 빌때는 front == rear
+// 배열 원소 하나는 꽉차게 할때는 (rear + 1)
 
+bool IsEmpty(Queue &q){
+    return q.front == q.rear;
+}
+bool IsFull(Queue &q){
+    return (q.rear + 1) % MAX == q.front;
+}
+
+void Dequque(Queue &q){
+
+    if(IsEmpty(q)){
+        return;
+    }
+    //뺀다
+    printf("Deque : %d\n", q.ar[q.front]);
+    q.ar[q.front] = 0;
+    q.front = (q.front + 1) % MAX;
+}
+
+void Enqueue(Queue &q, int val){
+    if(IsFull(q)){
+        return;
+    }
+    //넣는다
+    q.ar[q.rear] = val;
+    q.rear = (q.rear + 1) % MAX;
+}
+
+// list cpp 스타일
+class Node{
 public:
-    CircularQueue() {
-        front = 0;
-        rear = -1;
-        count = 0;
-    }
-
-    bool isEmpty() {
-        return count == 0;
-    }
-
-    bool isFull() {
-        return count == MAX_SIZE;
-    }
-
-    void enqueue(int value) {
-        if (isFull()) {
-            cout << "큐가 가득 찼습니다! " << value << "를 추가할 수 없습니다." << endl;
-            return;
-        }
-        
-        rear = (rear + 1) % MAX_SIZE;
-        arr[rear] = value;
-        count++;
-        cout << value << " 삽입됨" << endl;
-    }
-
-    int dequeue() {
-        if (isEmpty()) {
-            cout << "큐가 비어있습니다!" << endl;
-            return -1;
-        }
-        
-        int value = arr[front];
-        front = (front + 1) % MAX_SIZE;
-        count--;
-        return value;
-    }
-
-    int peek() {
-        if (isEmpty()) {
-            cout << "큐가 비어있습니다!" << endl;
-            return -1;
-        }
-        return arr[front];
-    }
-
-    void display() {
-        if (isEmpty()) {
-            cout << "큐가 비어있습니다!" << endl;
-            return;
-        }
-        
-        cout << "큐 내용: ";
-        int i = front;
-        for (int j = 0; j < count; j++) {
-            cout << arr[i] << " ";
-            i = (i + 1) % MAX_SIZE;
-        }
-        cout << endl;
-        cout << "Front 인덱스: " << front << ", Rear 인덱스: " << rear << ", 요소 개수: " << count << endl;
-    }
+    int data;
+    Node *next =nullptr;
+    Node *prev =nullptr;
 };
 
-int main() {
-    CircularQueue queue;
-    
-    cout << "=== 환형 큐 테스트 ===" << endl;
-    cout << "큐 크기: " << MAX_SIZE << endl << endl;
-    
-    cout << "1. 요소 삽입 테스트" << endl;
-    queue.enqueue(10);
-    queue.enqueue(20);
-    queue.enqueue(30);
-    queue.enqueue(40);
-    queue.enqueue(50);
-    queue.display();
-    
-    cout << "\n2. 큐가 가득 찬 상태에서 삽입 시도" << endl;
-    queue.enqueue(60);
-    
-    cout << "\n3. 요소 제거 테스트" << endl;
-    cout << "제거된 요소: " << queue.dequeue() << endl;
-    cout << "제거된 요소: " << queue.dequeue() << endl;
-    queue.display();
-    
-    cout << "\n4. 환형 특성 테스트 (rear가 다시 앞으로)" << endl;
-    queue.enqueue(60);
-    queue.enqueue(70);
-    queue.display();
-    
-    cout << "\n5. Peek 테스트" << endl;
-    cout << "Front 요소 (제거하지 않고 확인): " << queue.peek() << endl;
-    
-    cout << "\n6. 모든 요소 제거" << endl;
-    while (!queue.isEmpty()) {
-        cout << "제거된 요소: " << queue.dequeue() << endl;
+class LinkedList{
+public:
+    Node *head = nullptr;
+    Node *tail = nullptr;
+    void AddNodeHeader(int data){
+        Node * newNode = new Node();
+        newNode->data = data;
+        if(/*아무것도 없을때*/ head == nullptr && tail == nullptr){
+            head = newNode;
+            tail = newNode;
+            return;
+        }
+        else {
+            // newnode -
+            // ㅁㅡㅁ
+            newNode->next = head;
+            head->prev = newNode;
+            head = newNode;
+            return;
+        }
     }
-    queue.display();
+    void AddNodeTail(int data){
+        Node * newNode = new Node();
+        newNode->data = data;
+        if(/*아무것도 없을때*/ head == nullptr && tail == nullptr){
+            head = newNode;
+            tail = newNode;
+            return;
+        }
+        else {
+            // ㅁㅡㅁ -
+            //       newnode
+            tail->next = newNode;
+            newNode->prev = tail;
+            tail = newNode;
+            return;
+        }
+    }
+
+    Node* RemoveNode(int data){
+        Node *cur = head;
+        while(cur!=nullptr){
+            if(cur->data == data){
+                // head 노드 처리
+                if(cur->prev == nullptr) head = cur->next;
+                else cur->prev->next = cur->next;
+
+                // tail 노드 처리  
+                if(cur->next == nullptr) tail = cur->prev;
+                else cur->next->prev = cur->prev;
+
+                cur->next = nullptr;
+                cur->prev = nullptr;
+                return cur;
+            }
+            cur = cur->next;
+
+        }
+        return nullptr;
+
+    }
+};
+/*
+
+ㅁㅁㅁㅁ
+ㅁㅁㅁ
+ㅁㅁ
+
+*/
+void bubbleSort(int ar[], int size){
+    for(int i = 0 ; i< size - 1; i++){
+        for(int j=0;j<size - i - 1;j++){
+            if(ar[j] > ar[j+1]){
+                int temp = ar[j];
+                ar[j] = ar[j+1];
+                ar[j+1] = temp;
+            }
+        }
+    }
+}
+
+void bubbleSortList(LinkedList &list){
+    if(list.head == nullptr) return;
     
-    cout << "\n7. 빈 큐에서 제거 시도" << endl;
-    queue.dequeue();
-    
+    bool swapped;
+    do {
+        swapped = false;
+        Node *cur = list.head;
+        
+        while(cur != nullptr && cur->next != nullptr){
+            if(cur->data > cur->next->data){
+                int temp = cur->data;
+                cur->data = cur->next->data;
+                cur->next->data = temp;
+                swapped = true;
+            }
+            cur = cur->next;
+        }
+    } while(swapped);
+}
+
+int main() {
+
+
+
     return 0;
 }
