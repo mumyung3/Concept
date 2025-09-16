@@ -50,7 +50,14 @@
       "Bash(./executables/assembly_comparison:*)",
       "Bash(./executables/why_more_registers:*)",
       "Bash(./executables/intel_vs_amd_approach:*)",
-      "Bash(./executables/architecture_register_comparison:*)"
+      "Bash(./executables/architecture_register_comparison:*)",
+      "Bash(./executables/long_size_by_architecture:*)",
+      "Bash(./executables/data_model_types:*)",
+      "Bash(./executables/address_space_explanation:*)",
+      "Bash(./executables/porting_challenges:*)",
+      "Bash(./executables/why_size_matters:*)",
+      "Bash(./executables/why_adaptation_fails:*)",
+      "Bash(./executables/hardware_architecture_changes:*)"
     ],
     "deny": [],
     "ask": []
